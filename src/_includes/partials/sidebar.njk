@@ -1,0 +1,22 @@
+<nav class="p-4 space-y-1">
+    <div class="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide" data-i18n="nav.navigation">Navigation</div>
+
+    {%- set navLinks = [
+        { href: "/home-overview.html", key: "nav.home" },
+        { href: "/data-management.html", key: "nav.data" },
+        { href: "/index.html", key: "nav.results" },
+        { href: "#", key: "nav.reports" }
+    ] -%}
+
+    {%- for link in navLinks -%}
+    <a href="{{ link.href }}"
+       class="block px-4 py-2 rounded-lg text-sm font-medium {% if page.url == link.href %}text-blue-600 bg-blue-50{% else %}text-gray-700 hover:bg-blue-50 hover:text-blue-600{% endif %}"
+       data-i18n="{{ link.key }}">
+        {{ link.key }}
+    </a>
+    {%- endfor %}
+
+    <div class="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide mt-6" data-i18n="nav.settings">Settings</div>
+    <a href="#" class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-i18n="nav.system">System Settings</a>
+    <a href="#" class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-i18n="nav.help">Help Documentation</a>
+</nav>

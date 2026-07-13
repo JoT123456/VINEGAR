@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "partials/head.njk" %}
+</head>
+<body class="bg-gray-50">
+    <!-- Root Layout Container -->
+    <div class="flex h-screen flex-col">
+        <!-- ==================== HEADER ==================== -->
+        <header class="border-b border-gray-200 bg-white px-4 py-2 flex items-center justify-between">
+            {% include "partials/header.njk" %}
+        </header>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- SIDEBAR NAVIGATION -->
+            <aside class="w-56 border-r border-gray-200 bg-white overflow-y-auto">
+                {% include "partials/sidebar.njk" %}
+            </aside>
+
+            <!-- MAIN CONTENT AREA -->
+            <main class="flex-1 overflow-y-auto">
+                {{ content | safe }}
+            </main>
+        </div>
+    </div>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="/js/utils.js"></script>
+    <script src="/js/data.js"></script>
+    <script src="/js/charts/radar.js"></script>
+    <script src="/js/charts/scatter.js"></script>
+    <script src="/js/init.js"></script>
+</body>
+</html>
