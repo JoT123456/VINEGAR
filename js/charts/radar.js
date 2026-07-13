@@ -19,11 +19,15 @@ function renderRadarChart(containerEl, data, { maxScale = 5, rings = 5 } = {}) {
 
 function createRadarSVG() {
     const svg = createSVGElement('svg', {
-        width: '320',
-        height: '320',
-        viewBox: '0 0 320 320'
+        viewBox: '-20 -20 360 360',
+        preserveAspectRatio: 'xMidYMid meet'
     });
-    svg.style.cssText = 'background: white;';
+    svg.style.cssText = `
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: block;
+    `;
     return svg;
 }
 

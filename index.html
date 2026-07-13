@@ -82,10 +82,8 @@
                         </article>
 
                         <article class="bg-white border border-gray-200 rounded-lg p-4">
-                            <h2 class="text-sm font-semibold text-gray-800 mb-4">Top 10 Key Metabolite Contributions</h2>
-                            <div class="w-full h-64 bg-gray-100 rounded border-2 border-dashed border-gray-300 flex items-center justify-center">
-                                <span class="text-gray-400 text-sm">Bar Chart Placeholder</span>
-                            </div>
+                            <h2 class="text-sm font-semibold text-gray-800 mb-4">Key Metabolite Contributions (%)</h2>
+                            <div id="pie-chart" class="w-full h-64 relative flex items-center justify-center"></div>
                         </article>
 
                         <article class="bg-white border border-gray-200 rounded-lg p-4">
@@ -186,8 +184,11 @@
                     </section>
 
                     <!-- CTA Section -->
-                    <section class="bg-white border border-gray-200 rounded-lg p-4 flex justify-center">
+                    <section class="bg-white border border-gray-200 rounded-lg p-4 flex justify-center gap-4 flex-wrap">
                         <button class="px-8 py-2 bg-blue-600 text-white rounded font-medium hover:bg-blue-700">Download Results Report</button>
+                        <button onclick="exportRadarChart()" class="px-6 py-2 bg-green-600 text-white rounded font-medium hover:bg-green-700 text-sm">Export Radar (SVG)</button>
+                        <button onclick="exportScatterPlot()" class="px-6 py-2 bg-green-600 text-white rounded font-medium hover:bg-green-700 text-sm">Export Scatter (SVG)</button>
+                        <button onclick="exportPieChart()" class="px-6 py-2 bg-green-600 text-white rounded font-medium hover:bg-green-700 text-sm">Export Pie (SVG)</button>
                     </section>
                 </div>
             </main>
@@ -199,6 +200,8 @@
     <script src="js/data.js"></script>
     <script src="js/charts/radar.js"></script>
     <script src="js/charts/scatter.js"></script>
+    <script src="js/charts/pie.js"></script>
+    <script src="js/export.js"></script>
     <script src="js/init.js"></script>
 </body>
 </html>

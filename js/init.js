@@ -12,4 +12,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Generate and render scatter plot
     const clusterData = generateMockClusterData();
     renderScatterPlot(document.getElementById('scatter-chart'), clusterData);
+
+    // Render pie chart
+    try {
+        const metabolitesData = await fetchJSON('data/metabolites.json');
+        renderPieChart(document.getElementById('pie-chart'), metabolitesData.compounds);
+    } catch (err) {
+        const container = document.getElementById('pie-chart');
+        container.innerHTML = `<span class="text-red-500 text-sm">Error loading metabolites data: ${err.message}</span>`;
+    }
 });

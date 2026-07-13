@@ -1,0 +1,15 @@
+{
+  "compounds": [
+    { "name": "Metabolite A", "contribution": 18.5 },
+    { "name": "Metabolite B", "contribution": 14.2 },
+    { "name": "Metabolite C", "contribution": 12.1 },
+    { "name": "Metabolite D", "contribution": 10.3 },
+    { "name": "Metabolite E", "contribution": 9.7 },
+    { "name": "Metabolite F", "contribution": 8.4 },
+    { "name": "Metabolite G", "contribution": 7.2 },
+    { "name": "Metabolite H", "contribution": 5.8 },
+    { "name": "Metabolite I", "contribution": 4.6 },
+    { "name": "Metabolite J", "contribution": 3.5 },
+    { "name": "Metabolite K", "contribution": 5.7 }
+  ]
+}
