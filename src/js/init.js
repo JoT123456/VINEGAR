@@ -2,11 +2,12 @@ let flavorData = null;
 let clusterData = null;
 let metabolitesData = null;
 let translationsCache = {};
+let baseUrl = (window.location.pathname.includes('/GUI-vinegar/') ? '/GUI-vinegar' : '') + '/';
 
 async function loadTranslations(lang) {
     if (translationsCache[lang]) return translationsCache[lang];
     try {
-        const dict = await fetchJSON(`/i18n/${lang}.json`);
+        const dict = await fetchJSON(`${baseUrl}i18n/${lang}.json`);
         translationsCache[lang] = dict;
         return dict;
     } catch (err) {
@@ -18,7 +19,7 @@ async function loadTranslations(lang) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        flavorData = await fetchJSON('/data/flavor.json');
+        flavorData = await fetchJSON(`${baseUrl}data/flavor.json`);
     } catch (err) {
         const container = document.getElementById('radar-chart');
         if (container) {
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-        metabolitesData = await fetchJSON('/data/metabolites.json');
+        metabolitesData = await fetchJSON(`${baseUrl}data/metabolites.json`);
     } catch (err) {
         const container = document.getElementById('pie-chart');
         if (container) {

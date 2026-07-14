@@ -25,6 +25,9 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  // Global data for base URL (GitHub Pages subdirectory support)
+  eleventyConfig.addGlobalData("baseUrl", process.env.BASE_URL || "/");
+
   return {
     dir: {
       input: "src",
