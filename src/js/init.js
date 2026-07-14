@@ -2,12 +2,34 @@ let flavorData = null;
 let clusterData = null;
 let metabolitesData = null;
 let translationsCache = {};
-let baseUrl = (window.location.pathname.includes('/GUI-vinegar/') ? '/GUI-vinegar' : '') + '/';
+
+// Detect baseUrl dynamically from current pathname
+function detectBaseUrl() {
+    const pathname = window.location.pathname;
+    const hostname = window.location.hostname;
+    
+    // GitHub Pages: jot123456.github.io/VINEGAR/
+    // If path has 2+ segments, first segment is repo name
+    const parts = pathname.split('/').filter(p => p);
+    
+    if (hostname.endsWith('github.io') && parts.length > 0) {
+        // GitHub Pages: extract repo name
+        return '/' + parts[0] + '/';
+    }
+    
+    // Local or custom domain: root
+    return '/';
+}
+
+const baseUrl = detectBaseUrl();
+console.debug('Detected baseUrl:', baseUrl, 'Current pathname:', window.location.pathname);
 
 async function loadTranslations(lang) {
     if (translationsCache[lang]) return translationsCache[lang];
     try {
-        const dict = await fetchJSON(`${baseUrl}i18n/${lang}.json`);
+        const url = `${baseUrl}i18n/${lang}.json`;
+        console.debug('Loading translations from:', url);
+        const dict = await fetchJSON(url);
         translationsCache[lang] = dict;
         return dict;
     } catch (err) {
@@ -19,8 +41,11 @@ async function loadTranslations(lang) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        flavorData = await fetchJSON(`${baseUrl}data/flavor.json`);
+        const flavorUrl = `${baseUrl}data/flavor.json`;
+        console.debug('Loading flavor data from:', flavorUrl);
+        flavorData = await fetchJSON(flavorUrl);
     } catch (err) {
+        console.error('Failed to load flavor data:', err);
         const container = document.getElementById('radar-chart');
         if (container) {
             container.innerHTML = `<span class="text-red-500 text-sm">Error loading chart data: ${err.message}</span>`;
@@ -28,8 +53,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-        metabolitesData = await fetchJSON(`${baseUrl}data/metabolites.json`);
+        const metabolitesUrl = `${baseUrl}data/metabolites.json`;
+        console.debug('Loading metabolites data from:', metabolitesUrl);
+        metabolitesData = await fetchJSON(metabolitesUrl);
     } catch (err) {
+        console.error('Failed to load metabolites data:', err);
         const container = document.getElementById('pie-chart');
         if (container) {
             container.innerHTML = `<span class="text-red-500 text-sm">Error loading metabolites data: ${err.message}</span>`;
