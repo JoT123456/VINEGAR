@@ -72,5 +72,10 @@
   "category.Freshness": "新鲜度",
   "scatter.category.Cluster 1": "集群 1",
   "scatter.category.Cluster 2": "集群 2",
-  "scatter.category.Cluster 3": "集群 3"
+  "scatter.category.Cluster 3": "集群 3",
+  "chart.metabolite.compound": "化合物",
+  "chart.metabolite.others": "其他",
+  "export.radar": "导出雷达图 (SVG)",
+  "export.scatter": "导出散点图 (SVG)",
+  "export.pie": "导出饼图 (SVG)"
 }

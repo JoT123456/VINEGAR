@@ -72,5 +72,10 @@
   "category.Freshness": "Frescura",
   "scatter.category.Cluster 1": "Cluster 1",
   "scatter.category.Cluster 2": "Cluster 2",
-  "scatter.category.Cluster 3": "Cluster 3"
+  "scatter.category.Cluster 3": "Cluster 3",
+  "chart.metabolite.compound": "Composto",
+  "chart.metabolite.others": "Outros",
+  "export.radar": "Exportar Radar (SVG)",
+  "export.scatter": "Exportar Dispersão (SVG)",
+  "export.pie": "Exportar Pizza (SVG)"
 }

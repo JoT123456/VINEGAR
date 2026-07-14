@@ -53,9 +53,7 @@ permalink: "/index.html"
             <div id="metabolite-info" class="hidden rounded-lg border border-blue-100 bg-blue-50 p-3 text-sm text-gray-700 mb-4 break-words whitespace-normal" data-i18n="chart.metabolite.info">
                 This chart presents the top ten metabolites contributing most to the sensory profile, helping to understand which compounds influence quality outcomes.
             </div>
-            <div class="w-full min-h-[18rem] bg-gray-100 rounded border-2 border-dashed border-gray-300 flex items-center justify-center">
-                <span class="text-gray-400 text-sm" data-i18n="placeholder.barChart">Bar Chart Placeholder</span>
-            </div>
+            <div id="pie-chart" class="w-full min-h-[18rem] relative flex items-center justify-center"></div>
         </article>
 
         <article class="bg-white border border-gray-200 rounded-lg p-4 overflow-hidden">
@@ -164,7 +162,10 @@ permalink: "/index.html"
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-white border border-gray-200 rounded-lg p-4 flex justify-center">
+    <section class="bg-white border border-gray-200 rounded-lg p-4 flex justify-center gap-4 flex-wrap">
         <button class="px-8 py-2 bg-blue-600 text-white rounded font-medium hover:bg-blue-700" data-i18n="download.report">Download Results Report</button>
+        <button onclick="exportRadarChart()" class="px-6 py-2 bg-green-600 text-white rounded font-medium hover:bg-green-700 text-sm" data-i18n="export.radar">Export Radar (SVG)</button>
+        <button onclick="exportScatterPlot()" class="px-6 py-2 bg-green-600 text-white rounded font-medium hover:bg-green-700 text-sm" data-i18n="export.scatter">Export Scatter (SVG)</button>
+        <button onclick="exportPieChart()" class="px-6 py-2 bg-green-600 text-white rounded font-medium hover:bg-green-700 text-sm" data-i18n="export.pie">Export Pie (SVG)</button>
     </section>
 </div>

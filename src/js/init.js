@@ -1,5 +1,6 @@
 let flavorData = null;
 let clusterData = null;
+let metabolitesData = null;
 let translationsCache = {};
 
 async function loadTranslations(lang) {
@@ -22,6 +23,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         const container = document.getElementById('radar-chart');
         if (container) {
             container.innerHTML = `<span class="text-red-500 text-sm">Error loading chart data: ${err.message}</span>`;
+        }
+    }
+
+    try {
+        metabolitesData = await fetchJSON('/data/metabolites.json');
+    } catch (err) {
+        const container = document.getElementById('pie-chart');
+        if (container) {
+            container.innerHTML = `<span class="text-red-500 text-sm">Error loading metabolites data: ${err.message}</span>`;
         }
     }
 
@@ -93,6 +103,13 @@ function renderCharts(lang, dict) {
     if (scatterContainer) {
         const translatedPoints = translateScatterData(clusterData, dict);
         renderScatterPlot(scatterContainer, translatedPoints);
+    }
+
+    const pieContainer = document.getElementById('pie-chart');
+    if (pieContainer) {
+        if (metabolitesData) {
+            renderPieChart(pieContainer, metabolitesData.compounds, dict);
+        }
     }
 }
 
