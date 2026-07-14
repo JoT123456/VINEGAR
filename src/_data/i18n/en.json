@@ -36,7 +36,7 @@
   "data.goToResults": "Go to Result Analysis",
   "chart.radar.title": "Flavor Indicator Radar Chart",
   "chart.radar.info": "This radar chart shows the predicted sensory indicators for the batch, making it easier to compare flavor attributes and identify strengths and weaknesses in the fermentation profile.",
-  "chart.metabolite.title": "Top 10 Key Metabolite Contributions",
+  "chart.metabolite.title": "Top 10 Key Metabolite Contributions (%)",
   "chart.metabolite.info": "This chart presents the top ten metabolites contributing most to the sensory profile, helping to understand which compounds influence quality outcomes.",
   "chart.scatter.title": "Sample Distribution (Anomaly Detection)",
   "chart.scatter.info": "The scatter chart shows the sample distribution and highlights possible anomalies or batch deviations, making it easier to identify unusual patterns in the data.",

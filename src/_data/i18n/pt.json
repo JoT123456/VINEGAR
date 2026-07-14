@@ -36,7 +36,7 @@
   "data.goToResults": "Ir para Análise de Resultados",
   "chart.radar.title": "Gráfico Radar de Indicadores de Sabor",
   "chart.radar.info": "Este gráfico radar mostra os indicadores sensoriais previstos para o lote, facilitando a comparação dos atributos de sabor e a identificação de pontos fortes e fracos no perfil de fermentação.",
-  "chart.metabolite.title": "Top 10 Metabólitos que Mais Contribuem",
+  "chart.metabolite.title": "Top 10 Metabólitos que Mais Contribuem (%)",
   "chart.metabolite.info": "Este gráfico apresenta os dez principais metabólitos que mais contribuem para o perfil sensorial, ajudando a entender quais compostos influenciam os resultados de qualidade.",
   "chart.scatter.title": "Distribuição de Amostras (Detecção de Anomalias)",
   "chart.scatter.info": "O gráfico de dispersão mostra a distribuição das amostras e destaca possíveis anomalias ou desvios de lote, facilitando a identificação de padrões incomuns nos dados.",
