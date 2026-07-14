@@ -19,7 +19,7 @@ function renderRadarChart(containerEl, data, { maxScale = 5, rings = 5 } = {}) {
 
 function createRadarSVG() {
     const svg = createSVGElement('svg', {
-        viewBox: '-20 -20 360 360',
+        viewBox: '0 0 360 360',
         preserveAspectRatio: 'xMidYMid meet'
     });
     svg.style.cssText = `
@@ -33,9 +33,9 @@ function createRadarSVG() {
 
 function getRadarDimensions() {
     return {
-        centerX: 160,
-        centerY: 160,
-        maxRadius: 120
+        centerX: 180,
+        centerY: 180,
+        maxRadius: 140
     };
 }
 

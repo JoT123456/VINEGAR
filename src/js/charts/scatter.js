@@ -25,7 +25,7 @@ function renderScatterPlot(containerEl, points, options = {}) {
 
 function createScatterSVG() {
     const svg = createSVGElement('svg', {
-        viewBox: '-20 -20 360 360',
+        viewBox: '0 0 360 360',
         preserveAspectRatio: 'xMidYMid meet'
     });
     svg.style.cssText = `
@@ -38,8 +38,8 @@ function createScatterSVG() {
 }
 
 function getScatterDimensions() {
-    const svgSize = 320;
-    const padding = 40;
+    const svgSize = 360;
+    const padding = 50;
     const plotWidth = svgSize - 2 * padding;
     const plotHeight = svgSize - 2 * padding;
     return { svgSize, padding, plotWidth, plotHeight };
