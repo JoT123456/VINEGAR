@@ -147,15 +147,18 @@ function drawScatterAxes(svg, padding, svgSize) {
     xLabel.textContent = 'PC1 (35%)';
     axisGroup.appendChild(xLabel);
 
-    // Y axis label (aligned with Y-axis line, on the left)
+    // Y axis label (rotated vertical, parallel to Y-axis)
+    const yLabelX = padding - 15;
+    const yLabelY = (padding + svgSize - padding) / 2;
     const yLabel = createSVGElement('text', {
-        x: padding - 10,
-        y: (padding + svgSize - padding) / 2,
+        x: yLabelX,
+        y: yLabelY,
         'font-size': '12',
         fill: '#6b7280',
         'font-weight': '600',
-        'text-anchor': 'end',
-        'dominant-baseline': 'middle'
+        'text-anchor': 'middle',
+        'dominant-baseline': 'middle',
+        'transform': `rotate(-90 ${yLabelX} ${yLabelY})`
     });
     yLabel.textContent = 'PC2 (18%)';
     axisGroup.appendChild(yLabel);
