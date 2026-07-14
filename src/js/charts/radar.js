@@ -19,7 +19,7 @@ function renderRadarChart(containerEl, data, { maxScale = 5, rings = 5 } = {}) {
 
 function createRadarSVG() {
     const svg = createSVGElement('svg', {
-        viewBox: '0 0 360 360',
+        viewBox: '-30 -30 420 420',
         preserveAspectRatio: 'xMidYMid meet'
     });
     svg.style.cssText = `
@@ -81,7 +81,7 @@ function drawAxisLine(group, x1, y1, x2, y2) {
 }
 
 function drawAxisLabel(group, text, angle, centerX, centerY, maxRadius) {
-    const labelRadius = maxRadius + 25;
+    const labelRadius = maxRadius + 30;
     const labelX = centerX + labelRadius * Math.cos(angle);
     const labelY = centerY + labelRadius * Math.sin(angle);
 

@@ -25,7 +25,7 @@ function renderScatterPlot(containerEl, points, options = {}) {
 
 function createScatterSVG() {
     const svg = createSVGElement('svg', {
-        viewBox: '0 0 360 360',
+        viewBox: '-40 -40 440 440',
         preserveAspectRatio: 'xMidYMid meet'
     });
     svg.style.cssText = `
@@ -124,7 +124,7 @@ function drawScatterAxes(svg, padding, svgSize) {
 
     // X axis label
     const xLabel = createSVGElement('text', {
-        x: svgSize - padding + 5,
+        x: svgSize - padding + 15,
         y: svgSize - padding + 4,
         'font-size': '12',
         fill: '#6b7280',
@@ -135,8 +135,8 @@ function drawScatterAxes(svg, padding, svgSize) {
 
     // Y axis label
     const yLabel = createSVGElement('text', {
-        x: padding - 20,
-        y: padding - 5,
+        x: padding - 25,
+        y: padding - 15,
         'font-size': '12',
         fill: '#6b7280',
         'font-weight': '600',

@@ -20,7 +20,7 @@ function renderPieChart(containerEl, data, dict = {}) {
 
 function createPieSVG() {
     const svg = createSVGElement('svg', {
-        viewBox: '0 0 360 360',
+        viewBox: '-30 -30 420 420',
         preserveAspectRatio: 'xMidYMid meet'
     });
     svg.style.cssText = `
