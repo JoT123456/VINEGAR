@@ -2,6 +2,9 @@
   "name": "gui-vinegar",
   "version": "1.0.0",
   "description": "Flavor Evaluation Platform - 11ty static site with client-side i18n",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve"
