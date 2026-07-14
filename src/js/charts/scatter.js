@@ -19,8 +19,21 @@ function renderScatterPlot(containerEl, points, options = {}) {
 
     containerEl.innerHTML = '';
     containerEl.style.position = 'relative';
+    containerEl.style.display = 'flex';
+    containerEl.style.alignItems = 'flex-start';
+    containerEl.style.gap = '0';
+    
+    const svgWrapper = document.createElement('div');
+    svgWrapper.style.cssText = `
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    `;
+    svgWrapper.appendChild(svg);
+    containerEl.appendChild(svgWrapper);
     containerEl.appendChild(legend);
-    containerEl.appendChild(svg);
 }
 
 function createScatterSVG() {
@@ -122,25 +135,27 @@ function drawScatterAxes(svg, padding, svgSize) {
     });
     axisGroup.appendChild(yAxis);
 
-    // X axis label
+    // X axis label (centered underneath the axis)
     const xLabel = createSVGElement('text', {
-        x: svgSize - padding + 15,
-        y: svgSize - padding + 4,
+        x: (padding + svgSize - padding) / 2,
+        y: svgSize - padding + 25,
         'font-size': '12',
         fill: '#6b7280',
-        'font-weight': '600'
+        'font-weight': '600',
+        'text-anchor': 'middle'
     });
     xLabel.textContent = 'PC1 (35%)';
     axisGroup.appendChild(xLabel);
 
-    // Y axis label
+    // Y axis label (aligned with Y-axis line, on the left)
     const yLabel = createSVGElement('text', {
-        x: padding - 25,
-        y: padding - 15,
+        x: padding - 10,
+        y: (padding + svgSize - padding) / 2,
         'font-size': '12',
         fill: '#6b7280',
         'font-weight': '600',
-        'text-anchor': 'end'
+        'text-anchor': 'end',
+        'dominant-baseline': 'middle'
     });
     yLabel.textContent = 'PC2 (18%)';
     axisGroup.appendChild(yLabel);
@@ -205,10 +220,17 @@ function createScatterLegend(categories, colorMap) {
     const legend = document.createElement('div');
     legend.style.cssText = `
         display: flex;
-        gap: 16px;
-        justify-content: flex-end;
-        margin-bottom: 8px;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 6px;
+        margin-left: 8px;
+        padding: 8px;
+        background: #f9fafb;
+        border-radius: 6px;
+        font-size: 12px;
+        max-height: 100%;
+        overflow-y: auto;
+        flex-shrink: 0;
+        width: 110px;
     `;
 
     categories.forEach(cat => {
@@ -216,9 +238,9 @@ function createScatterLegend(categories, colorMap) {
         item.style.cssText = `
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 12px;
+            gap: 8px;
             color: #374151;
+            padding: 4px 0;
         `;
 
         const swatch = document.createElement('div');
@@ -227,10 +249,12 @@ function createScatterLegend(categories, colorMap) {
             height: 10px;
             border-radius: 50%;
             background: ${colorMap[cat]};
+            flex-shrink: 0;
         `;
 
         const label = document.createElement('span');
         label.textContent = cat;
+        label.style.cssText = 'overflow: hidden; text-overflow: ellipsis; white-space: nowrap;';
 
         item.appendChild(swatch);
         item.appendChild(label);
